@@ -31,7 +31,6 @@ module.exports = class AnimatedStatus extends Plugin {
         powercord.api.settings.registerSettings("animated-status", {
             category: this.entityID,
             label: "Animated Status",
-
             render: (props) =>
                 React.createElement(Settings, {
                     ...props,
@@ -55,6 +54,8 @@ module.exports = class AnimatedStatus extends Plugin {
     cycle() {
         const animations = this.settings.get("animations", this.defaults.animations);
         let currentAnimation = animations[this.settings.get("currentAnimationIndex", this.defaults.currentAnimationIndex)];
+
+        if (!animations.length) return clearInterval(this.interval);
 
         if (!currentAnimation) {
             this.settings.set("currentAnimationIndex", this.defaults.currentAnimationIndex);

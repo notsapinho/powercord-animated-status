@@ -78,7 +78,10 @@ module.exports = class Settings extends React.Component {
                                 }
                             });
 
-                            return updateSetting("animations", animations);
+                            updateSetting("animations", animations);
+
+                            cycle();
+                            createInterval();
                         }}
                     >
                         Add
@@ -90,7 +93,10 @@ module.exports = class Settings extends React.Component {
 
                             animations.pop();
 
-                            return updateSetting("animations", animations);
+                            updateSetting("animations", animations);
+
+                            cycle();
+                            createInterval();
                         }}
                     >
                         Remove
