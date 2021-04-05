@@ -1,0 +1,25 @@
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.space-x-2 > * + * {
+    margin-left: .5rem;
+}
+.space-y-2 > *:not(:first-child) + * {
+    margin-top: .5rem;
+}
+
+.space-x-4 > * + * {
+    margin-left: 1rem;
+}
+.space-y-4 > *:not(:first-child) + * {
+    margin-top: 1rem;
+}
