@@ -8,7 +8,7 @@ module.exports = class AnimatedStatus extends Plugin {
         this.loadStylesheet("./style.css");
 
         this.defaults = {
-            rate: 10000,
+            rate: 5000,
             currentAnimationIndex: 0,
             animations: [
                 {
