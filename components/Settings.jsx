@@ -16,16 +16,16 @@ module.exports = class Settings extends React.Component {
                 <SliderInput
                     minValue={1000}
                     maxValue={60000}
-                    stickToMarkers
                     markers={[1000, 5000, 10000, 15000, 20000, 30000, 40000, 50000, 60000]}
                     defaultValue={defaults.rate}
                     initialValue={getSetting("rate", defaults.rate)}
                     onValueChange={(val) => {
-                        updateSetting("rate", Math.floor(parseInt(val)));
+                        updateSetting("rate", Math.round(val * 10) / 10);
                         cycle();
                         createInterval();
                     }}
-                    onMarkerRender={(v) => `${Math.floor(v / 1000)}s`}
+                    onValueRender={(v) => `${(Math.round(v / 100) / 10).toFixed(1)}s`}
+                    onMarkerRender={(v) => `${(Math.round(v / 100) / 10).toFixed(1)}s`}
                 >
                     Update rate
                 </SliderInput>
